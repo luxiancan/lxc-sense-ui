@@ -1,0 +1,171 @@
+@import '../base.scss';
+
+.ss-button {
+  display: inline-block;
+  line-height: 1;
+  background: $mc;
+  color: #fff;
+  border-radius: 4px;
+  user-select: none;
+  outline: none;
+  transform: all .3s ease-in-out;
+  font-size: 14px;
+  border: none;
+  text-align: center;
+  white-space: nowrap;
+  cursor: pointer;
+  box-sizing: border-box;
+  &:hover, &:focus {
+    background: $mc1;
+    border-color: $mc1;
+  }
+  & + & {
+    margin-left: 12px;
+    // margin-bottom: 12px;;
+  }
+  &:active {
+    background: $mc2;
+    border-color: $mc2;
+  }
+  &.ss-button__medium {
+      padding: 0 16px;
+      min-width: 74px;
+      min-height: 32px;
+      &+&{
+        margin-left: 16px;
+      }
+  }
+  &.ss-button__small {
+      padding: 5px 8px;
+      min-width: 58px;
+      min-height: 24px;
+      &+&{
+        margin-left: 8px;
+      }
+  }
+  &.ss-button__big {
+    padding: 12px 24px;
+    min-width: 96px;
+    min-height: 40px;
+    &+&{
+      margin-left: 20px;
+    }
+  }
+  /*TODO：按钮大小适配*/
+  &.ss-button__text {
+    padding: 0;
+    min-width: 56px;
+    font-size: 14px;
+    font-weight: 400;
+    color: #105CFB;
+    line-height: 32px;
+    background: none;
+    &.ss-button__disabled {
+        background: none;
+        border: none;
+        &:hover, &:focus, &:active {
+            background: none;
+            border: none
+        }
+    }
+  }
+  &.ss-button__plain {
+    background: #FFFFFF;
+    border-radius: 4px;
+    border: 1px solid #DBDBDB;
+    color: #333;
+    &:hover {
+        color: $mc1;
+        border-color: $mc1;
+    }
+    // &:hover, &:focus {
+    //     color: $mc1;
+    //     border-color: $mc1;
+    // }
+    &:active {
+        color: $mc2;
+        border-color: $mc2;
+    }
+  }
+  &.ss-button__text {
+    &:hover, &:focus {
+        color: $mc1;
+    }
+    &:active {
+        color: $mc2;
+    }
+  }
+  &.ss-button__disabled {
+    cursor: not-allowed;
+    color: #B2B2B2;
+    background: #F5F5F5;
+    border: 1px solid #DBDBDB;
+    &:hover, &:focus, &:active {
+        color: #B2B2B2;
+        background: #F5F5F5;
+        border: 1px solid #DBDBDB; 
+    }
+  }
+}
+.ss-button__info {
+  background-color: #fff;
+  border: 1px solid $regularBorder;
+  color: $regularFont;
+  &:hover, &:focus{
+    background-color: #fff;
+    border-color: $mc;
+    color: $mc;
+  }
+  &:active{
+    background: #F0F5FF;
+    color: $mc;
+    border-color: $mc;
+  }
+}
+.ss-button__success {
+  background: $sc;
+  &:hover, &:focus {
+    background: $sc1;
+    border-color: $sc1;
+  }
+  &:active {
+    background: $sc2;
+    border-color: $sc2;
+  }
+}
+.ss-button__warning {
+    background: $ec;
+    &:hover, &:focus {
+      background: $ec1;
+      border-color: $ec1;
+    }
+    &:active {
+      background: $ec2;
+      border-color: $ec2;
+    }
+}
+.ss-button__error {
+  background: $ec;
+  &:hover, &:focus {
+    background: $ec1;
+    border-color: $ec1;
+  }
+  &:active {
+    background: $ec2;
+    border-color: $ec2;
+  }
+}
+
+.ss-button-loading {
+    display: inline-block;
+    animation: loading 2s linear infinite normal;
+}
+@keyframes loading {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+

@@ -1,0 +1,156 @@
+$hightlightZindex: 100003;
+$hightlightOverlayZindex: 100002;
+$primary-color: #105CFB;
+
+@mixin getArrow($direction) {
+    border-width: 8px;
+    border-style: solid;
+    border-color: transparent;
+    position: absolute;
+    @if($direction == 'bottom' or $direction == 'bottom-end') {
+        border-bottom-color: $primary-color;
+        top: 0;
+        @if($direction == 'bottom-end') {
+            right: 10px;
+        }@else {
+            left: 10px;  
+        }
+        transform: translateY(-100%);
+    }
+    // #Todo
+    @if($direction == 'top') {
+        border-top-color: $primary-color;
+        transform: translateY(100%);
+    }
+    // #Todo
+    @if($direction == 'left') {
+        right: 0;
+        transform: translateX(100%);
+        border-left-color: $primary-color;
+        @if($direction == 'right-end') {
+            bottom: 10px;
+        }@else {
+            top: 10px;
+        }
+    }
+    @if($direction == 'right' or $direction == 'right-end') {
+        border-right-color: $primary-color;
+        transform: translateX(-100%);
+        left: 0;
+        @if($direction == 'right-end') {
+            bottom: 10px;
+        }@else {
+            top: 10px;
+        }
+    }
+}
+.ss-intro-highlight__element {
+    z-index: $hightlightZindex !important;
+    background: #fff !important;
+    opacity: 1 !important;
+}
+
+#SsIntroOverlay {
+    z-index: $hightlightOverlayZindex !important;
+}
+
+.ss-relative {
+    position: relative !important;
+}
+.ss-intro-popover__container {
+    position: fixed;
+    z-index: $hightlightZindex !important;
+    .ss-new-popover {
+        background: $primary-color;
+        padding: 16px;
+        color: #fff;
+        border-color: $primary-color;
+        box-sizing: border-box;
+        width: 278px;
+        white-space: normal;
+    }
+    // #Todo left & top
+    &.left {
+        .ss-new-popover {
+            &::after {
+                content: ' ';
+                @include getArrow('left')
+            }
+        }
+    }
+    &.right {
+        .ss-new-popover {
+            right: 0;
+            top: 0;
+            &::before {
+                content: ' ';
+                @include getArrow('right')
+            }
+        }
+        &-end {
+            .ss-new-popover {
+                right: 0;
+                bottom: 0;
+                &::before {
+                    content: ' ';
+                    @include getArrow('right-end')
+                }
+            }
+        }
+    }
+    &.bottom {
+        .ss-new-popover {
+            // left: 0;
+            // top: 100%;
+            &::before {
+                content: ' ';
+                @include getArrow('bottom')
+            }
+        }
+        &-end {
+            .ss-new-popover {
+                top: 100%;
+                right: 0;
+                &::before {
+                    content: ' ';
+                    @include getArrow('bottom-end')
+                }
+            }
+        }
+    }
+}
+.ss-intro-flex {
+    display: flex;
+}
+.ss-intro-flex--end {
+    justify-content: flex-end;
+}
+.ss-intro-btn {
+    border-radius: 2px;
+    padding: 6px 8px;
+    font-size: 12px;
+    line-height: 12px;
+    border: none;
+    &:focus, &:active {
+        border: none;
+        outline: none;
+    }
+}
+.ss-intro-btn--primary {
+    background: #fff;
+    color: $primary-color;
+}
+.ss-intro-btn--plain {
+    background: transparent;
+    color: #fff;
+    border-color: transparent;
+}
+.ss-fix-stacking-context {
+    transform: none !important;
+    transform-style: flat !important;
+    transform-box: border-box !important;
+    filter: none !important;
+    perspective: none !important;
+    z-index: auto !important;
+    position: static !important;
+}

@@ -1,0 +1,137 @@
+@import '../base.scss';
+@import '../common/var';
+.ss-pagination {
+  display: flex;
+  align-items: center;
+  color: $--pagination-font-color;
+  list-style: none;
+  user-select: none;
+  .ss-pagination-item {
+    display: inline-block;
+    min-width: 32px;
+    height: 32px;
+    line-height: 30px;
+    padding: 0 4px;
+    background: #fff;
+    border: 1px solid #DBDBDB;
+    border-radius: 4px;
+    margin-right: 4px;
+    font-size: $--pagination-font-size;
+    text-align: center;
+    cursor: pointer;
+    &:hover {
+       background: $--pagination-hover-color;
+    }
+    &.ss-pagination-item__active {
+      color:#fff;
+      border-color: $--pagination-button-active-bg;
+      background: $--pagination-button-active-bg;
+    }
+    &.ss-pagination-item__disabled {
+      color: #DBDBDB;
+      cursor: not-allowed;
+      background: #F5F5F5;
+      &:hover {
+        border-color: #DBDBDB;
+      }
+    }
+  }
+  .ss-pagination-right {
+    margin-right: 0
+  }
+  .ss-pagination-ellipsis {
+    border: none;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 24px;
+    &:hover {
+      cursor: default;
+    }
+  }
+  .ss-pagination-options {
+    display: flex;
+    align-items: center;
+    // font-size: 0;
+    .ss-pagination-options-size {
+      display: inline-block;
+      margin-left: 4px;
+      margin-right: 8px;
+    }
+    .ss-select {
+      min-width: 86px;
+      box-sizing: border-box;
+      .ss-input-decoration-icon{
+        line-height: 2.2;
+      }
+    }
+    & .ss-input-inner {
+      line-height: 32px;
+      height: 32px;
+    }
+    .ss-pagination-options-jump {
+      margin-left: 4px;
+      display: inline-block;
+      font-size: 14px;
+      .ss-pagination-options-jump-input {
+        margin: 0 4px;
+        width: 48px;
+        vertical-align: middle;
+      }
+    }
+  }
+
+  //small 样式
+  &.ss-pagination-small {
+    font-size: 12px;
+    line-height: 24px;
+    .ss-pagination-item {
+        margin: 0;
+        min-width: 24px;
+        height: 24px;
+        line-height: 24px;
+        font-size: 12px;
+        border: none;
+        &.ss-pagination-ellipsis{
+          line-height: 18px;
+        }
+    }
+    & .ss-pagination-item__disabled {
+        color: #DBDBDB;
+        cursor: not-allowed;
+        background: inherit;
+    }
+    .ss-pagination-options-jump {
+        font-size: 12px;
+        .ss-pagination-options-jump-input {
+            height: 24px;
+            width: 32px;
+        }
+    }
+    .ss-select {
+        min-width: 64px;
+    }
+    .ss-input {
+        height: 24px;
+        line-height: 24px;
+       & .ss-input-inner {
+           padding-left: 8px;
+           padding-right: 4px;
+           font-size: 12px;
+           line-height: 24px;
+           height: 24px;
+       }
+    }
+    .ss-pagination-options-size {
+        width: 80px;
+        margin-right: 4px;
+    }
+    .ss-option {
+        height: 24px;
+        line-height: 24px;
+        font-size: 12px;
+    }
+    .ss-input-icon {
+        font-size: 12px;
+    }
+  }
+}

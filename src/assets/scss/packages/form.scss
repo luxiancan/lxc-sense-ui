@@ -1,0 +1,175 @@
+@import "../mixins/mixins";
+@import "../mixins/utils";
+@import "../common/var";
+
+@include b(form) {
+  @include m(label-left) {
+    & .ss-form-item__label {
+      text-align: left;
+    }
+  }
+  @include m(label-top) {
+    & .ss-form-item__label {
+      float: none;
+      display: inline-block;
+      text-align: left;
+      padding: 0 0 10px 0;
+      line-height: 32px;
+    }
+  }
+  @include m(inline) {
+    & .ss-form-item {
+      display: inline-block;
+      margin-right: 10px;
+      vertical-align: top;
+    }
+    & .ss-form-item__label {
+      float: none;
+      display: inline-block;
+      line-height: 32px;
+    }
+    & .ss-form-item__content {
+      display: inline-block;
+      vertical-align: top;
+    }
+    &.ss-form--label-top .ss-form-item__content {
+      display: block;
+    }
+  }
+}
+@include b(form-item) {
+  margin-bottom: 24px;
+  @include utils-clearfix;
+
+  & .ss-form-item {
+    margin-bottom: 0;
+  }
+
+  & .ss-input__validateIcon {
+    display: none;
+  }
+
+  @include m(medium) {
+    .ss-form-item__label {
+      line-height: 36px;
+    }
+    .ss-form-item__content {
+      line-height: 36px;
+    }
+  }
+  @include m(small) {
+    .ss-form-item__label {
+      line-height: 32px;
+    }
+    .ss-form-item__content {
+      line-height: 32px;
+    }
+    &.ss-form-item {
+      margin-bottom: 18px;
+    }
+    .ss-form-item__error {
+      padding-top: 2px;
+    }
+  }
+  @include m(mini) {
+    .ss-form-item__label {
+      line-height: 28px;
+    }
+    .ss-form-item__content {
+      line-height: 28px;
+    }
+    &.ss-form-item {
+      margin-bottom: 18px;
+    }
+    .ss-form-item__error {
+      padding-top: 1px;
+    }
+  }
+
+  @include e(label-wrap) {
+    float: left;
+    .ss-form-item__label {
+      display: inline-block;
+      float: none;
+    }
+  }
+
+  @include e(label) {
+    text-align: right;
+    vertical-align: middle;
+    float: left;
+    font-size: $--form-label-font-size;
+    color: $--ss-color-text-primary;
+    padding: 0 12px 0 0;
+    box-sizing: border-box;
+    line-height: 32px;
+  }
+  @include e(content) {
+    position: relative;
+    font-size: 14px;
+    line-height: 32px;
+    @include utils-clearfix;
+
+    .ss-input-group {
+      vertical-align: top;
+    }
+    .ss-checkbox{
+      margin-right: 16px;
+      margin-left: 0;
+    }
+  }
+  @include e(error) {
+    color: $--ss-color-danger;
+    font-size: $--font-size-base;
+    line-height: 1;
+    margin-top: 8px;
+    /*padding-top: 4px;
+    position: absolute;
+    top: 100%;
+    left: 0;*/
+
+    @include m(inline) {
+      position: relative;
+      top: auto;
+      left: auto;
+      display: inline-block;
+      margin-left: 10px;
+    }
+  }
+
+  @include when(required) {
+    @include pseudo('not(.is-no-asterisk)') {
+      & > .ss-form-item__label:before,
+      & .ss-form-item__label-wrap > .ss-form-item__label:before {
+        content: '*';
+        color: $--ss-color-danger;
+        margin-right: 4px;
+      }
+    }
+  }
+
+  @include when(error) {
+    & .ss-input-inner,
+    & .ss-textarea-inner {
+      &, &:focus {
+        border-color: $--color-danger;
+      }
+    }
+    & .ss-input-group__append,
+    & .ss-input-group__prepend {
+      & .ss-input__inner {
+        // border-color: transparent;
+        border-color: #5C91FF;
+      }
+    }
+    .ss-input__validateIcon {
+      color: $--color-danger;
+    }
+  }
+
+  @include m(feedback) {
+    .ss-input__validateIcon {
+      display: inline-block;
+    }
+  }
+}

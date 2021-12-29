@@ -1,0 +1,36 @@
+@import '../base.scss';
+
+.ss-default-tips {
+    position: relative;
+    padding: 10px 50px 10px 10px;
+    margin: 12px 0;
+    width: 100%;
+    border-radius:2px;
+    color:rgba(53,53,53,1);
+    line-height:20px;
+    font-size:14px;
+    font-family:PingFangSC-Regular,PingFang SC;
+    font-weight:400;
+    text-align: justify;
+    &.ss-default-tips-yellow {
+        background:rgba(255,244,230,1);
+        border:1px solid rgba(255,199,128,1);
+    }
+    &.ss-default-tips-blue {
+        background:rgba(226,234,251,1);
+        border:1px solid rgba(126,166,251,1);
+    }
+    a {
+        color: #105CFB;
+        text-decoration: none!important;
+        cursor: pointer!important;
+    }
+    .ss-default-tips-close {
+        position: absolute;
+        right: 10px;
+        top: 15px;
+        width: 10px;
+        height: 10px;
+        cursor: pointer;
+    }
+}

@@ -1,0 +1,224 @@
+@import "../../mixins/mixins.scss";
+@import "../../common/var.scss";
+@import "../../common/transition.scss";
+
+@include b(date-editor) {
+  position: relative;
+  display: inline-block;
+  // text-align: left;
+  width: 240px ;
+  background-color: #fff;
+
+  &.ss-input,
+  &.ss-input__inner {
+    width: 240px;
+  }
+  &.ss-input__inner {
+    border: 1px solid $--datepicker-inner-border-color;
+    border-radius: 4px;
+  }
+
+  // TODO 切换时间输入框下是否显示框
+  //@include m(start) {
+  //  .ss-date-editor__focus-line{
+  //    height: 1px;
+  //    width: 60px;
+  //    background-color: $--datepicker-focus-line;
+  //    position: absolute;
+  //    bottom: 0;
+  //  }
+  //}
+
+  @include m((monthrange)) {
+    &.el-input,
+    &.ss-input__inner {
+      width: 300px;
+    }
+  }
+
+  @include m((daterange, timerange)) {
+    &.el-input,
+    &.ss-input__inner {
+      width: 248px;
+      height: 32px;
+    }
+    &.ss-input__inner:hover {
+      border-color: $--link-default-active-color;
+    }
+  }
+
+  @include m(datetimerange) {
+    &.el-input,
+    &.ss-input__inner {
+      width: 400px;
+    }
+  }
+
+  @include m(dates) {
+    .ss-input__inner {
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+  }
+
+  .el-icon-circle-close {
+    cursor: pointer;
+  }
+
+  .el-range__icon {
+    font-size: 14px;
+    margin-left: -5px;
+    color: $--color-text-placeholder;
+    float: right;
+    line-height: 32px;
+  }
+
+  .ss-range-input {
+    appearance: none;
+    border: none;
+    outline: none;
+    display: inline-block;
+    height: 100%;
+    margin: 0;
+    width: 100%;
+    text-align: left;
+    font-size: $--font-size-base;
+    color: $--color-text-regular;
+
+    &::placeholder {
+      color: $--color-text-placeholder;
+    }
+  }
+
+  .ss-range-separator {
+    display: inline-block;
+    height: 100%;
+    padding: 0 8px;
+    margin: 0;
+    text-align: center;
+    line-height: 30px;
+    font-size: 14px;
+    // width: 8px;
+    color: $--ss--color-picker-text-primary;
+  }
+
+  .sense-icon-close_date,
+  .sense-icon-clock,
+  .sense-icon-calendar{
+    font-size: 14px;
+    color: #c8c9cc;
+    width: 25px;
+    display: inline-block;
+    float: right;
+    line-height: 32px;
+  }
+}
+
+@include b(range-editor) {
+  &.ss-input__inner {
+    display: inline-flex;
+    align-items: center;
+    padding-left:  12px;
+    padding-right: 8px;
+    border-radius: 4px;
+  }
+
+  .ss-range-input {
+    line-height: 1;
+  }
+
+  @include when(active) {
+    border-color: $--color-primary;
+
+    &:hover {
+      border-color: $--color-primary;
+    }
+  }
+
+  @include m(medium) {
+    &.ss-input__inner {
+      height: 32px;
+    }
+
+    .ss-range-separator {
+      line-height: 28px;
+      font-size: $--input-medium-font-size;
+    }
+
+    .ss-range-input {
+      font-size: $--input-medium-font-size;
+    }
+
+    .el-range__icon,
+    .sense-icon-close_date {
+      line-height: 28px;
+    }
+  }
+
+  @include m(small) {
+    &.ss-input__inner {
+      height: 32px;
+    }
+
+    .ss-range-separator {
+      line-height: 24px;
+      font-size: $--input-small-font-size;
+    }
+
+    .ss-range-input {
+      font-size: $--input-small-font-size;
+    }
+
+    .el-range__icon,
+    .sense-icon-close_date {
+      line-height: 24px;
+    }
+  }
+
+  @include m(mini) {
+    &.ss-input__inner {
+      height: 32px;
+    }
+
+    .ss-range-separator {
+      line-height: 20px;
+      font-size: $--input-mini-font-size;
+    }
+
+    .ss-range-input {
+      font-size: $--input-mini-font-size;
+    }
+
+    .el-range__icon,
+    .sense-icon-close_date {
+      line-height: 20px;
+    }
+  }
+
+  @include when(disabled) {
+    background-color: $--input-disabled-fill;
+    border-color: $--input-disabled-border;
+    color: $--input-disabled-color;
+    cursor: not-allowed;
+
+    &:hover, &:focus {
+      border-color: $--link-default-active-color;
+    }
+
+    input {
+      background-color: $--input-disabled-fill;
+      color: $--input-disabled-color;
+      cursor: not-allowed;
+      &::placeholder {
+        color: $--input-disabled-placeholder-color;
+      }
+    }
+
+    .ss-range-separator {
+      color: $--ss--color-picker-text-primary;
+    }
+  }
+}
+.select-today {
+  text-align: right;
+}

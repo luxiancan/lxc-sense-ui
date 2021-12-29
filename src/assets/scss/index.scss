@@ -1,0 +1,26 @@
+* {
+  box-sizing: border-box;
+}
+html, body {
+  font-size: 14px;
+}
+
+// B端管理台font-family为font_family，而sense里将font-family进行改写，导致B端管理台中图标不显示，现将sense中关于字体图标的class名改变一下，不已icon-icon开头
+
+[class^="sense-icon"], [class*=" sense-icon"] {
+  font-family: 'sense-iconfont';
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@import './iconfont.scss';
+
+// 动画
+@import './common/animation.scss';
+

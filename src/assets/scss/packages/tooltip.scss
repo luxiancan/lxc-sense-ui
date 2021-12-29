@@ -1,0 +1,167 @@
+@import "../common/var.scss";
+.ss-tooltip__popper{
+  position: absolute;
+  border-radius: 4px;
+  z-index: 2000;
+  font-size: 14px;
+  line-height: 1.2;
+  min-width: 10px;
+  word-wrap: break-word;
+  box-shadow: $--tooltip-box-shadow;
+  padding: $--tooltip-padding;
+
+  .ss-tooltip__content{
+    display: flex;
+    .ss-tooltip__icon{
+      display: inline-block;
+      width: 24px;
+      height: 24px;
+      margin-right: 8px;
+    }
+    .ss-tooltip__title{
+      font-size: $--font-size-medium;
+      font-weight: $--font-weight-primary;
+      color: $--ss-color-form-text-primary;
+      margin-bottom: 8px;
+      line-height: 24px;
+    }
+  }
+  .ss-tooltip__button{
+    text-align: right;
+    margin-top: 16px;
+  }
+  .popper__arrow,
+  .popper__arrow::after {
+    position: absolute;
+    display: block;
+    width: 0;
+    height: 0;
+    border-color: transparent;
+    border-style: solid;
+  }
+
+  .popper__arrow {
+    border-width: $--popover-arrow-size;
+  }
+
+  .popper__arrow::after {
+    content: " ";
+    border-width: 5px;
+  }
+  
+  &[x-placement^="top"] {
+    margin-bottom: #{$--popover-arrow-size + 7};
+  }
+
+  &[x-placement^="top"] .popper__arrow {
+    bottom: -5px;
+    border-top-color: $--tooltip-color;
+    border-bottom-width: 0;
+  
+    &::after {
+      bottom: 1px;
+      margin-left: -5px;
+      border-top-color: $--tooltip-color;
+      border-bottom-width: 0
+
+    }
+  }
+
+  &[x-placement^="bottom"] {
+    margin-top: #{$--popover-arrow-size + 5};
+  }
+
+  &[x-placement^="bottom"] .popper__arrow {
+    top: -5px;
+    border-top-width: 0;
+    border-bottom-color: $--tooltip-color;
+
+    &::after {
+      top: 1px;
+      margin-left: -5px;
+      border-top-width: 0;
+      border-bottom-color: $--tooltip-color;
+    }
+  }
+
+  &[x-placement^="right"] {
+    margin-left: #{$--popover-arrow-size + 5};
+  }
+
+  &[x-placement^="right"] .popper__arrow {
+    left: -$--popover-arrow-size;
+    border-right-color: $--tooltip-color;
+    border-left-width: 0;
+    &::after {
+      bottom: -5px;
+      left: 1px;
+      border-right-color: $--tooltip-color;
+      border-left-width: 0;
+    }
+  }
+
+  &[x-placement^="left"] {
+    margin-right: #{$--popover-arrow-size + 5};
+  }
+
+  &[x-placement^="left"] .popper__arrow {
+    right: -$--popover-arrow-size;
+    border-left-color: $--tooltip-color;
+    border-right-width: 0;
+
+    &::after {
+      right: 1px;
+      bottom: -5px;
+      margin-left: -5px;
+      border-right-width: 0;
+      border-left-color: $--tooltip-color;
+    }
+  }
+  &.is-dark {
+    // background: $--tooltip-fill;
+    // color: $--tooltip-color;
+    color: $--tooltip-fill;
+    background: $--tooltip-color;
+  }
+  &.is-light {
+    background: $--tooltip-fill;
+    color: $--tooltip-color;
+
+    &[x-placement^="top"] {
+      .popper__arrow{
+        border-top-color: $--tooltip-fill;
+      }
+      .popper__arrow:after {
+        border-top-color: $--tooltip-fill;
+      }
+    }
+
+    &[x-placement^="bottom"] {
+      .popper__arrow{
+        border-bottom-color: $--tooltip-fill;
+      }
+      .popper__arrow:after {
+        border-bottom-color: $--tooltip-fill;
+      }
+    }
+
+    &[x-placement^="left"] {
+      .popper__arrow{
+        border-left-color: $--tooltip-fill;
+      }
+      .popper__arrow:after {
+        border-left-color: $--tooltip-fill;
+      }
+    }
+    &[x-placement^="right"] {
+      .popper__arrow{
+        border-right-color: $--tooltip-fill;
+      }
+      .popper__arrow:after {
+        border-right-color: $--tooltip-fill;
+      }
+    }
+  }
+
+}
+

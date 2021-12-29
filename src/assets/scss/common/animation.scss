@@ -1,0 +1,16 @@
+// 旋转动画 - 原地旋转
+@mixin ss-spin-in-situ($speed) {
+  animation: ss-spin $speed infinite linear;
+}
+
+// 旋转动画
+@keyframes ss-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+

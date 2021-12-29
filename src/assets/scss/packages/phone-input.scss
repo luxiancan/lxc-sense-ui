@@ -1,0 +1,147 @@
+@import "../base";
+@import "../mixins/mixins";
+@import "../index.scss";
+
+$cell-width: 76px;
+$height: 36px;
+$border-height: 20px;
+$err-color: #ff3366;
+
+@mixin base-style() {
+  background-color: #fff;
+  background-image: none;
+  border: 1px solid #dcdfe6;
+  box-sizing: border-box;
+  color: #606266;
+  height: $height;
+  line-height: $height;
+  outline: none;
+}
+
+@mixin flex-between() {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.ss-phone-input {
+  display: flex;
+  align-items: center;
+  position: relative;
+  font-size: 14px;
+  i {
+    font-family: sense-iconfont !important;
+  }
+  .ss-code-cell-wrap {
+    @include base-style;
+    cursor: pointer;
+    border-right: none;
+    display: flex;
+    align-items: center;
+    .ss-code-cell {
+      @include text-ellipsis;
+      border-right: 1px solid #dcdfe6;
+      height: $border-height;
+      width: $cell-width;
+      .sense-icon-down {
+        color: $decLight;
+        font-size: 12px;
+        cursor: pointer;
+      }
+      .ss-is-reverse {
+        transition: all 0.3s ease-in-out;
+        transform: rotate(-180deg);
+      }
+    }
+  }
+  .ss-code-row {
+    @include text-ellipsis;
+    @include flex-between;
+    width: 100%;
+    padding: 0 12px;
+    .sense-icon-selected {
+      color: $mc1;
+    }
+  }
+  .ss-input-wrap {
+    width: 100%;
+    .ss-input__inner {
+      @include base-style;
+      &::placeholder {
+        color: #999;
+        opacity: 1;
+      }
+      border-left: none;
+      padding: 0 8px;
+      display: inline-block;
+      width: 100%;
+      border-radius: 0 4px 4px 0;
+    }
+  }
+  .ss-dropdown-menu {
+    &::-webkit-scrollbar {
+      width: 8px;
+      height: 16px;
+      background-color: #f5f5f5;
+    }
+
+    /*定义滚动条轨道 内阴影+圆角*/
+    &::-webkit-scrollbar-track {
+      border-radius: 10px;
+      background-color: none;
+    }
+
+    /*定义滑块 内阴影+圆角*/
+    &::-webkit-scrollbar-thumb {
+      border-radius: 10px;
+      background-color: #bcbcbc;
+      transition: 0.3s;
+      &:hover {
+        background-color: #a7a7a7;
+      }
+    }
+    .ss-dropdown-item:hover {
+      color: $regularFont;
+    }
+  }
+  .ss-err-info {
+    position: absolute;
+    right: 0;
+    bottom: -20px;
+    color: $err-color;
+    font-size: 12px;
+  }
+}
+
+.ss-input-theme {
+  .ss-code-cell-wrap {
+    border-radius: 4px 0 0 4px;
+    .ss-code-cell {
+      @include flex-between;
+      padding: 0 8px;
+    }
+  }
+}
+
+.ss-border-theme {
+  .ss-code-cell-wrap {
+    border-left: none;
+    border-top: none;
+    .ss-code-cell {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-right: 8px;
+      .ss-code {
+        margin-right: 8px;
+      }
+    }
+  }
+  .ss-input-wrap {
+    .ss-input__inner {
+      border-top: none;
+      border-right: none;
+      border-radius: 0;
+    }
+  }
+}

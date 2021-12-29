@@ -1,0 +1,144 @@
+@import "../../common/var.scss";
+@import "../../mixins/mixins";
+@import "./picker-panel.scss";
+
+@include b(date-picker) {
+  &.ss-popper{
+    &[x-placement^=bottom]{
+      margin-top: 4px;
+      .popper__arrow{
+        display: none;
+      }
+    }
+    &[x-placement^=top]{
+      margin-bottom: 4px;
+      .popper__arrow{
+        display: none;
+      }
+    }
+  }
+
+  &.has-sidebar.has-time {
+    width: 434px;
+  }
+
+  &.has-sidebar {
+     width: 438px;
+   }
+
+  &.only-panel {
+    width: 278px;
+    &[disabled]{
+      pointer-events: none;
+      cursor: not-allowed;
+      background-color: #f5f5f5;
+    }
+  }
+
+  &.has-time .ss-picker-panel__body-wrapper {
+    position: relative;
+    width: 460px;
+    .ss-time-spinner__list:after{
+      height: 208px;
+    }
+  }
+
+  .ss-picker-panel__content {
+    display: flex;
+    .ss-date-picker__header-time{
+      justify-content: center;
+      color: $--color-text-secondary;
+      font-weight: 500;
+    }
+    .ss-picker-panel-time {
+      flex: 1;
+    }
+    .ss-picker-panel-date {
+      width: 278px;
+    }
+  }
+
+  table {
+    border-collapse: inherit;  //解决部分项目引用，出现table padding不显示
+    table-layout: fixed;
+    width: 278px;
+    height: 240px;
+    padding: 8px 12px;
+    box-shadow: 0px -1px 0px 0px #EBEBEB;
+  }
+
+  @include e(editor-wrap) {
+    position: relative;
+    display: table-cell;
+    padding: 0 5px;
+  }
+
+  @include e(time-header) {
+    position: relative;
+    border-bottom: 1px solid $--datepicker-inner-border-color;
+    font-size: 12px;
+    padding: 8px 5px 5px 5px;
+    display: table;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  @include e(header) {
+    /*margin: 0 14px;
+    text-align: center;
+    height: 52px;
+    line-height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;*/
+    margin: 0 14px;
+    text-align: center;
+    padding-top: 16px;
+    padding-bottom: 12px;
+    display: flex;
+    justify-content: space-between;
+
+    @include m(bordered) {
+      & + .ss-picker-panel__content {
+        margin-top: 0;
+      }
+    }
+  }
+
+  @include e(header-label) {
+    font-size: 16px;
+    font-weight: 500;
+    padding: 0 5px;
+    line-height: 24px;
+    text-align: center;
+    cursor: pointer;
+    color: $--color-text-regular;
+
+    &:hover {
+      color: $--datepicker-hover-font-color;
+    }
+
+    &.active {
+      color: $--datepicker-active-color;
+    }
+  }
+
+  // @include e(prev-btn) {
+  //   float: left;
+  // }
+
+  // @include e(next-btn) {
+  //   float: right;
+  // }
+
+  @include e(time-wrap) {
+    padding: 10px;
+    text-align: center;
+  }
+
+  @include e(time-label) {
+    float: left;
+    cursor: pointer;
+    margin-left: 10px;
+  }
+}

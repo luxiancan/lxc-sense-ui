@@ -1,0 +1,71 @@
+@import '../base.scss';
+.tabs {
+  width: 100%;
+  .tabs-item__wrapper {
+    text-align: left;
+    position: relative;
+    & > .tabs-item {
+      padding: 10px 20px;
+      display: inline-block;
+      width: auto;
+      line-height: 20px;
+      cursor: pointer;
+      font-size: 14px;
+      color: #333;
+      user-select: none;
+      &:hover {
+          color: $mc;
+      }
+      &.ss-tabs-disabled {
+          color: #B2B2B2;
+          cursor: not-allowed;
+          &:hover {
+            color: #B2B2B2;
+        }
+      }
+      &.ss-tabs-card {
+        padding: 10px 19px;
+        margin-right: 4px;
+        min-width: 96px;
+        text-align: center;
+        border-radius: 4px 4px 0px 0px;
+        border: 1px solid #EEEEEE;
+        border-bottom: none;
+        background-color: #F5F5F5;
+        &.current-tabs {
+            background-color: #fff;
+            border-bottom: none;
+        }
+      }
+    }
+    & > .current-tabs {
+      color: $mc;
+    }
+    & > div.tabs-idx-line__wrapper {
+      width: 100%;
+      height: 1px;
+      background: #eee;
+      position: relative;
+      & > .tabs-idx-line {
+        display: inline-block;
+        width: 20px;
+        height: 2px;
+        background: $mc;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        z-index: 10;
+        &.tabs-idx-line__card {
+            height: 1px;
+            background: #fff;
+            &.animate {
+                transition: all 0.1s ease-in-out;
+            }
+        }
+      }
+      & > .animate {
+        transition: all 0.3s ease-in-out;
+      }
+    }
+  }
+}

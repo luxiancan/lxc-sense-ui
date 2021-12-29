@@ -1,0 +1,35 @@
+@import '../base.scss';
+
+.ss-dropdown-menu {
+  position: absolute;
+  width: max-content;
+  max-height: 210px;
+  min-width: 120px;
+  margin: 0;
+  padding: 4px 0;
+  list-style: none;
+  overflow-y: auto;
+  background: rgba(255,255,255,1);
+  box-shadow: 0 2px 8px rgba(0,0,0,.15);
+  border-radius: 2px;
+  opacity: 0;
+  transform: scaleY(0);
+  transition: transform .15s ease-in-out,
+            opacity .15s ease-in-out;
+  transform-origin: 50% 0%;
+  z-index: 10;
+  &.ss-dropdown-menu__show {
+    opacity: 1;
+    transform: scaleY(1);
+  }
+  &.ss-dropdown-menu__empty {
+    height: 100px;
+    line-height: 100px;
+    text-align: center;
+  }
+  .ss-dropdown-menu-empty {
+    height: 120px;
+    line-height: 120px;
+    text-align: center;
+  }
+}

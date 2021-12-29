@@ -1,0 +1,124 @@
+@import "../mixins/mixins";
+@import "../common/var";
+@import "./popper";
+@import "../base";
+
+@include b(select-dropdown) {
+  position: absolute;
+  z-index: #{$--index-top + 1};
+  border: $--select-dropdown-border;
+  border-radius: $--border-radius-base;
+  background-color: $--select-dropdown-background;
+  box-shadow: $--select-dropdown-shadow;
+  box-sizing: border-box;
+  margin: 5px 0;
+  opacity: 0;
+  transform: scaleY(0);
+
+  @include when(multiple) {
+    & .ss-select-dropdown__item{
+      &:after {
+        position: absolute;
+        top: 9px;
+        right: 8px;
+        content: '';
+        width: 14px;
+        height: 14px;
+        line-height: 14px;
+        box-sizing: border-box;
+        border: 1px solid $regularBorder;
+        border-radius: 2px;
+        transition: all .3s;
+        color: $mc3;
+      }
+      &.hover:after {
+        border-color: $mc3;
+      }
+      &.selected{
+        font-weight: normal;
+        &:after{
+          background-color: $mc3;
+          border-color: $mc3;
+          color: $mc4;
+        }
+      }
+      &.is-disabled:after{
+        background-color: $dis;
+        border-color: $dis2;
+      }
+    }
+  }
+
+  .ss-scrollbar.is-empty .ss-select-dropdown__list{
+    padding: 0;
+    //height: 100px;
+  }
+}
+
+@include b(select-dropdown_show) {
+  opacity: 1;
+  transform: scaleY(1);
+}
+
+@include b(select-dropdown__empty) {
+  padding: $--select-dropdown-empty-padding;
+  margin: 0;
+  text-align: center;
+  color: $--select-dropdown-empty-color;
+  font-size: $--select-font-size;
+}
+
+@include b(select-dropdown__wrap) {
+  max-height: $--select-dropdown-max-height;
+}
+
+@include b(select-dropdown__list) {
+  list-style: none;
+  padding: $--select-dropdown-padding;
+  margin: 0;
+  box-sizing: border-box;
+  & .ss-select-dropdown__item{
+    position: relative;
+    font-size: 14px;
+    padding: 5px 30px 5px 12px;
+    cursor: pointer;
+    line-height: 22px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    box-sizing: border-box;
+    .ss-tooltip{
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    &.hover {
+      cursor: pointer;
+      background-color: $--select-option-hover-background;
+    }
+    &.selected{
+      font-weight: bold;
+      &:after {
+        font-family: "sense-iconfont" !important;
+        font-size: 12px;
+        content: "\e62b";
+        color: $mc3;
+        position: absolute;
+        top: 9px;
+        right: 8px;
+        width: 14px;
+        height: 14px;
+        line-height: 14px;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+    }
+    &.is-disabled{
+      color: $iconFont;
+    }
+   .highlight{
+     font-style: normal;
+     color: $mc3;
+   }
+  }
+}

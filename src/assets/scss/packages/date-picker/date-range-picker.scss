@@ -1,0 +1,145 @@
+@import "../../common/var";
+
+@include b(date-range-picker) {
+  width: 544px;
+  &.ss-popper{
+    &[x-placement^=bottom]{
+      margin-top: 4px;
+      .popper__arrow{
+        display: none;
+      }
+    }
+    &[x-placement^=top]{
+      margin-bottom: 4px;
+      .popper__arrow{
+        display: none;
+      }
+    }
+  }
+  table {
+    border-collapse: inherit;  //解决部分项目引用，出现table padding不显示
+    table-layout: fixed;
+    width: 100%;
+    box-shadow: 0 -1px 0 0 #ebebeb;
+    border-bottom: 1px solid $--border-color-base;
+    border-right: 1px solid $--border-color-base;
+    padding: 8px 12px 8px 20px;
+  }
+
+  .ss-picker-datepanel__body {
+    width: 544px;
+    .ss-picker-panel__content{
+      &:last-child{
+        table{
+          padding: 8px 20px 8px 12px;
+        }
+      }
+    }
+  }
+  .ss-picker-panel__content {
+    margin: 0;
+
+  }
+
+  @include e(header) {
+    position: relative;
+    height: 24px;
+    line-height: 24px;
+    text-align: center;
+    padding-top: 16px;
+    padding-bottom: 12px;
+    box-sizing: content-box;
+
+    [class*=last_month] {
+      float: left;
+    }
+
+    [class*=last_year] {
+      float: left;
+      padding-left: 16px;
+    }
+
+    [class*=next_month] {
+      float: right;
+    }
+
+    [class*=next_year] {
+      float: right;
+      padding-right: 16px;
+    }
+
+    div {
+      font-size: 16px;
+      font-weight: 500;
+      margin-right: 55px;
+    }
+
+  }
+
+  @include e(content) {
+    float: left;
+    width: 50%;
+    box-sizing: border-box;
+    margin: 0;
+  }
+
+  @include e(editors-wrap) {
+    box-sizing: border-box;
+    display: table-cell;
+
+    @include when(right) {
+      text-align: right;
+    }
+  }
+
+  @include e(time-header) {
+    position: relative;
+    border-bottom: 1px solid $--datepicker-inner-border-color;
+    font-size: 12px;
+    padding: 8px 5px 5px 5px;
+    display: table;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  @include e(time-picker-wrap) {
+    position: relative;
+    display: table-cell;
+    padding: 0 5px;
+
+    .ss-picker-panel {
+      position: absolute;
+      top: 13px;
+      right: 0;
+      z-index: 1;
+      background: $--color-white;
+      width: 460px;
+    }
+  }
+}
+@include b(datetime-range-picker) {
+  width: 460px;
+
+  .ss-picker-panel_datecontent {
+    display: flex;
+    border-bottom: 1px solid $--datepicker-inner-border-color;
+    .ss-picker-panel-date {
+      width: 276px;
+    }
+    .ss-picker-panel-time {
+      flex: 1;
+    }
+
+    .ss-date-table {
+      width: 276px;
+      height: 238px;
+    }
+  }
+
+  .ss-datetime-range-picker__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 52px;
+  }
+}

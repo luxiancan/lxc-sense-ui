@@ -1,0 +1,40 @@
+@import '../base.scss';
+
+.ss-super-table{
+
+
+  .ss-super-table__filter-box{
+    display: flex;
+    margin-bottom: 24px;
+  }
+  .filter-form-horizontal {
+    display: flex;
+    justify-content: space-between;
+    .right {
+      display: flex;
+      max-width: 1400px;
+      .filter-right-item {
+        min-width: 120px;
+        margin-right: 10px;
+        &:last-child {
+          margin-right: 0;
+        }
+        /deep/ .el-range-separator {
+          width: 20px;
+        }
+      }
+      .reset-button {
+        white-space: nowrap;
+        margin-left: 8px;
+        user-select: none;
+      }
+    }
+  }
+
+  .ss-super-table__footer{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 24px;
+  }
+}
+
