@@ -1,5 +1,5 @@
-# sense
-小鹅通管理台组件库
+# lxc-sense-ui 
+UI组件库
 ## 组件的写法
 为了按需引入，libEntry/build文件夹下的组件文件夹命名单词之间必须以短线连接 -
 组件内单独写样式，不要把样式单独放一个文件在 src\assets\scss\index.scss 引入
